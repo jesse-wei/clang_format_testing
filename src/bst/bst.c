@@ -1,4 +1,4 @@
-#include "bst.h"
+#include         "bst.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,7 +11,7 @@ int main() {
   scanf("%d", &size);
   printf("Value: ");
   scanf("%d", &val);
-  BST* bst = new_node(val);
+  BST *bst = new_node(val);
   for (int i = 1; i < size; i++) {
     printf("Value: ");
     scanf("%d", &val);
@@ -24,7 +24,7 @@ int main() {
 }
 
 // Given in macros.asm
-BST* new_node(int x) {
+BST *new_node(int x) {
   /**
    * malloc is "implemented" in macro sbrk in macros.asm
    * To review malloc (covered in 211):
@@ -36,7 +36,7 @@ BST* new_node(int x) {
    * malloc uses sbrk internally
    * For this lab, you can treat malloc and sbrk as the same thing
    */
-  BST* node = malloc(sizeof(BST));
+  BST *node = malloc(sizeof(BST));
 
   /**
    * To review C's arrow operator (->) (covered in 211):
@@ -48,7 +48,7 @@ BST* new_node(int x) {
   return node;
 }
 
-BST* insert(BST* root, int x) {
+BST  *insert(BST * root, int x) {
   if (root == NULL) {
     return new_node(x);
   } else if (x < root->data) {
@@ -59,7 +59,7 @@ BST* insert(BST* root, int x) {
   return root;
 }
 
-void inorder(BST* root) {
+void inorder(BST * root) {
   if (root != NULL) {
     inorder(root->left);
     printf("%d ", root->data);
